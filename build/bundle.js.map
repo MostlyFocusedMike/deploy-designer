@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":"AAAAA,QAAQC,IAAI,YACZD,QAAQC,IAAI,mBACZD,QAAQC,IAAI","sources":["webpack://text-gif/./src/index.js"],"sourcesContent":["console.log('hi there')\nconsole.log('hi therdasdasde')\nconsole.log('new:asdasds ', );\nconst obj = {a: 'a'};\nconst newObj = {...obj, b: 'b'};\n"],"names":["console","log"],"sourceRoot":""}
