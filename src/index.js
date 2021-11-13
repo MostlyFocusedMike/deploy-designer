@@ -1,5 +1,8 @@
-console.log('hi there')
-console.log('hi therdasdasde')
-console.log('new:asdasds ', );
-const obj = {a: 'a'};
-const newObj = {...obj, b: 'b'};
+import React from "react";
+import ReactDOM from "react-dom";
+import App from './App';
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
