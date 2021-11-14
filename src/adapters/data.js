@@ -1,7 +1,7 @@
 export default {
     phases: [
         {
-            id: '6ff2f9fc-5c93-4e40-842d-4cf90da7e28e',
+            id: '843e2240-8d46-45b2-96f6-cbce4c9a48f6',
             title: 'Phase 1: Basics',
             position: 0,
             streams: [

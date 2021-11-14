@@ -13,9 +13,15 @@ const mainAdapter = {
             position: phases.length,
             streams: [],
         }
-        const thing = {phases: [...phases, newPhase]};
-        localStorage.setItem('mockDb', JSON.stringify(thing));
+        const newPhases = {phases: [...phases, newPhase]};
+        localStorage.setItem('mockDb', JSON.stringify(newPhases));
         return newPhase;
+    },
+    deletePhase: async (id) => {
+        const { phases } = JSON.parse(localStorage.getItem('mockDb'));
+        const newPhases = phases.filter(phase => phase.id !== id);
+        console.log('newPhases: ', newPhases);
+        localStorage.setItem('mockDb', JSON.stringify({phases: newPhases}));
     }
 }
 
