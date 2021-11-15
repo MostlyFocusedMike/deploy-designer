@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import mainAdapter from '../adapters/main';
 import Phase from './Phase';
-console.log(self.crypto.randomUUID());
+
 const Phases = () => {
     const [phases, setPhases] = useState(null);
     const [phaseTitle, setPhaseTitle] = useState('')
@@ -26,8 +26,8 @@ const Phases = () => {
     const handleChange = (e) => {
         setPhaseTitle(e.target.value);
     }
-    console.log('phases: ', phases);
-    return <div>
+
+return <div>
         <ol>
         {
             phases && phases.map(phase => {

@@ -1,6 +1,6 @@
 import data from "./data";
 import { v4 as uuidv4 } from 'uuid';
-console.log(uuidv4()); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+
 const mainAdapter = {
     getAll: async () => {
         return JSON.parse(localStorage.getItem('mockDb'));
@@ -20,9 +20,21 @@ const mainAdapter = {
     deletePhase: async (id) => {
         const { phases } = JSON.parse(localStorage.getItem('mockDb'));
         const newPhases = phases.filter(phase => phase.id !== id);
-        console.log('newPhases: ', newPhases);
         localStorage.setItem('mockDb', JSON.stringify({phases: newPhases}));
-    }
+    },
+    createStream: async (title, phaseId) => {
+        const { phases } = JSON.parse(localStorage.getItem('mockDb'));
+        const [phase] = phases.filter(phase => phase.id === phaseId);
+        const newStream = {
+            id: uuidv4(),
+            title,
+            position: phase.streams.length,
+            phaseId,
+        }
+        phase.streams.push(newStream)
+        localStorage.setItem('mockDb', JSON.stringify({phases}));
+        return newStream;
+    },
 }
 
 export default mainAdapter;

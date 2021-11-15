@@ -17,12 +17,18 @@ li {
     }
 }
 
+#streams-container {
+    border: 0.1rem solid black;
+    display: flex;
+}
+
 #streams {
     display: flex;
 }
 
 .stream {
     margin: 1rem;
+    border: 0.1rem solid black;
     h3 {
         margin: 0;
     }
