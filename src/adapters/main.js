@@ -13,7 +13,7 @@ const mainAdapter = {
             position: phases.length,
             streams: [],
         }
-        const newPhases = {phases: [...phases, newPhase]};
+        const newPhases = { phases: [...phases, newPhase] };
         localStorage.setItem('mockDb', JSON.stringify(newPhases));
         return newPhase;
     },
