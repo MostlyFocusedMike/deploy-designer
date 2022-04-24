@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Tickets from './Tickets';
 
 const Stream = ({stream}) => {
-    console.log('I render: ', );
-    return <li className='stream'>
-        <h3>{stream.title}</h3>
-    </li>
+  return <li className='stream'>
+    <h3>{stream.title}</h3>
+    { stream.tickets && <Tickets initTickets={stream.tickets} /> }
+  </li>
 }
 
 export default Stream;

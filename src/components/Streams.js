@@ -16,12 +16,10 @@ const Streams = ({startingStreams, phaseId}) => {
     setNewStreamName('');
   }
 
-  return <div id='streams-container'>
-    <ol id='streams'>
+  return <div className='streams-container'>
+    <ol className='streams'>
     {
-      streams && streams.map(stream => {
-        return <Stream stream={stream} key={stream.id} />
-      })
+      streams && streams.map(stream => <Stream stream={stream} key={stream.id} />)
     }
     </ol>
     <form>
