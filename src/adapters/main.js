@@ -24,7 +24,7 @@ const mainAdapter = {
     },
     createStream: async (title, phaseId) => {
         const { phases } = JSON.parse(localStorage.getItem('mockDb'));
-        const [phase] = phases.filter(phase => phase.id === phaseId);
+        const phase = phases.find(phase => phase.id === phaseId);
         const newStream = {
             id: uuidv4(),
             title,
@@ -34,6 +34,25 @@ const mainAdapter = {
         phase.streams.push(newStream)
         localStorage.setItem('mockDb', JSON.stringify({phases}));
         return newStream;
+    },
+    createTicket: async (title, description, url, streamId) => {
+      const { phases } = JSON.parse(localStorage.getItem('mockDb'));
+      let stream;
+      phases.forEach(phase => {
+        phase.streams.forEach(dbStream => {
+          if (dbStream.id === streamId) stream = dbStream;
+        })
+      });
+      const newTicket = {
+          id: uuidv4(),
+          title,
+          position: stream.tickets.length,
+          description,
+          url,
+      }
+      stream.tickets.push(newTicket)
+      localStorage.setItem('mockDb', JSON.stringify({phases}));
+      return newTicket;
     },
 }
 

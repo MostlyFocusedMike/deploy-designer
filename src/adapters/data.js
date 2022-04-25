@@ -16,14 +16,16 @@ export default {
                             position: 0,
                             title: 'OPS-1',
                             description: 'Setup stuff',
-                            url: 'https://google.com'
+                            url: 'https://google.com',
+                            streamId: '7ff2f9fc-5c93-4e40-842d-4cf90da7e28e',
                         },
                         {
                             id: '6af2f9fc-5c93-4e40-842d-4cf90da7e28e',
                             position: 0,
                             title: 'OPS-2',
                             description: 'Add Containers',
-                            url: 'https://google.com'
+                            url: 'https://google.com',
+                            streamId: '7ff2f9fc-5c93-4e40-842d-4cf90da7e28e',
                         }
                     ]
                 },
@@ -38,6 +40,7 @@ export default {
                             position: 0,
                             title: 'FRONT-1',
                             description: 'Render basic',
+                            streamId: '6fb2f9fc-5c93-4e40-842d-4cf90da7e28e',
                             url: 'https://google.com'
                         },
                         {
@@ -45,6 +48,7 @@ export default {
                             position: 0,
                             title: 'FRONT-2',
                             description: 'Show list in full detail',
+                            streamId: '6fb2f9fc-5c93-4e40-842d-4cf90da7e28e',
                             url: 'https://google.com'
                         }
                     ]

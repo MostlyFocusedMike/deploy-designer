@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import NewTicketModal from './NewTicketModal';
 
 const Tickets = ({initTickets}) => {
@@ -19,7 +19,10 @@ return <>
     </ol>
     <button onClick={() => setIsVisible(!isVisible)}>Add new ticket</button>
     {
-      isVisible && <NewTicketModal toggleVisibility={toggleVisibility} />
+      isVisible && <NewTicketModal
+        toggleVisibility={toggleVisibility}
+        setTickets={setTickets}
+      />
     }
   </>
 }
