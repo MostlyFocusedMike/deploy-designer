@@ -4,11 +4,9 @@ import NewTicketModal from './NewTicketModal';
 const Tickets = ({initTickets}) => {
   const [tickets, setTickets] = useState(initTickets);
   const [isVisible, setIsVisible] = useState(false);
-  const handleToggle = () => setIsVisible(!isVisible);
-  useEffect(() => {
-    console.log('isVisible:', isVisible);
-  }, [isVisible])
-  return <>
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
+return <>
     <ol className='ticket'>
       {
         tickets.length && tickets.map(ticket => {
@@ -21,7 +19,7 @@ const Tickets = ({initTickets}) => {
     </ol>
     <button onClick={() => setIsVisible(!isVisible)}>Add new ticket</button>
     {
-      isVisible ? <NewTicketModal handleToggle={handleToggle} /> : null
+      isVisible && <NewTicketModal toggleVisibility={toggleVisibility} />
     }
   </>
 }
