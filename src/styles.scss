@@ -47,11 +47,11 @@ input {
   border: 0.1rem solid black;
 }
 #modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   color: black;
   background: rgba(0,0,0,0.3);
