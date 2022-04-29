@@ -4,7 +4,7 @@ import mainAdapter from "../adapters/main";
 const isTabKey = (e) => (e.which || e.keyCode) === 9;
 const isShiftKey = (e) => (e.which || e.keyCode) === 16;
 
-const NewTicketModal = ({ toggleVisibility}) => {
+const NewTicketModal = ({ toggleVisibility, streamId }) => {
   const [isShiftDown, setIsShiftDown] = useState(false);
   const xButton = useRef();
   const submitButton = useRef();
@@ -34,7 +34,21 @@ const NewTicketModal = ({ toggleVisibility}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submit!:', );
-    mainAdapter.createTicket('Test Title', 'Test Desc', 'https://google.com', '7ff2f9fc-5c93-4e40-842d-4cf90da7e28e').then(console.log)
+    mainAdapter.createTicket(title, description, url, streamId).then(console.log)
+  }
+
+  const handleChangeText = (e) => {
+    switch (e.target.id) {
+      case 'title':
+        setTitle(e.target.value);
+        break;
+      case 'description':
+        setDescription(e.target.value);
+        break;
+      case 'url':
+        setUrl(e.target.value);
+        break;
+    }
   }
 
   return <div id='modal-backdrop' onClick={handleBackdropClick}>
@@ -43,11 +57,11 @@ const NewTicketModal = ({ toggleVisibility}) => {
       <h2>Create New Ticket</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title</label>
-        <input type='text' id='title' />
+        <input type='text' id='title' value={title} onChange={handleChangeText} />
         <label htmlFor='description'>Description</label>
-        <input type='text' id='description' />
+        <input type='text' id='description' value={description} onChange={handleChangeText} />
         <label htmlFor='url'>Url</label>
-        <input type='text' id='url'/>
+        <input type='text' id='url' value={url} onChange={handleChangeText} />
 
         <button onKeyDown={lastTrapFocus} ref={submitButton}>Create Ticket</button>
       </form>

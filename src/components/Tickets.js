@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NewTicketModal from './NewTicketModal';
 
-const Tickets = ({initTickets}) => {
+const Tickets = ({ initTickets, streamId }) => {
   const [tickets, setTickets] = useState(initTickets);
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -22,6 +22,7 @@ return <>
       isVisible && <NewTicketModal
         toggleVisibility={toggleVisibility}
         setTickets={setTickets}
+        streamId={streamId}
       />
     }
   </>
